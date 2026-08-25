@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Keep this page out of search engines -->
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Neutral link preview: what WhatsApp/iMessage show BEFORE the page is opened.
+     The real title below is only seen once the page is actually open. -->
+<meta property="og:title" content="A little something">
+<meta property="og:description" content="Open this when you have a quiet minute.">
+<meta name="twitter:card" content="summary">
+
+<title>Mabrook, Zahra — Your Hajj Awaits</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Amiri:wght@400;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night:#070b16;
+    --emerald:#0d4d3f;
+    --gold:#d9b365;
+    --gold-bright:#f2dfa8;
+    --cream:#f4eee0;
+    --muted:rgba(244,238,224,.62);
+    --line:rgba(217,179,101,.28);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+
+  html{scroll-behavior:smooth}
+
+  body{
+    background:var(--night);
+    color:var(--cream);
+    font-family:'Jost',system-ui,sans-serif;
+    font-weight:300;
+    line-height:1.75;
+    overflow-x:hidden;
+  }
+
+  /* ---------- starfield ---------- */
+  .sky{position:fixed;inset:0;z-index:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 80% 55% at 50% 0%, #16223f 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 90%, #0d3b32 0%, transparent 65%),
+      linear-gradient(180deg,#070b16 0%,#0b1224 45%,#070b16 100%);
+  }
+  .star{position:absolute;background:#fff;border-radius:50%;animation:twinkle linear infinite}
+  @keyframes twinkle{0%,100%{opacity:.15;transform:scale(.8)}50%{opacity:.9;transform:scale(1.15)}}
+
+  .wrap{position:relative;z-index:1}
+
+  /* ---------- shared ---------- */
+  section{padding:clamp(64px,10vw,120px) clamp(20px,6vw,32px)}
+  .inner{max-width:820px;margin:0 auto}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.8,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  .arabic{font-family:'Amiri',serif;direction:rtl;color:var(--gold-bright)}
+
+  .rule{display:flex;align-items:center;justify-content:center;gap:14px;margin:34px 0}
+  .rule::before,.rule::after{content:"";height:1px;flex:1;max-width:130px;
+    background:linear-gradient(90deg,transparent,var(--line),transparent)}
+  .rule span{color:var(--gold);font-size:.85rem;letter-spacing:.4em}
+
+  /* ---------- hero ---------- */
+  .hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative}
+
+  .moon{width:76px;height:76px;margin-bottom:34px;animation:float 7s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+  .eyebrow{font-size:.72rem;letter-spacing:.55em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:300;
+    font-size:clamp(3.2rem,13vw,7rem);
+    line-height:.95;
+    background:linear-gradient(180deg,#fff 0%,var(--gold-bright) 55%,var(--gold) 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+
+  .hero .labbayk{font-size:clamp(1.5rem,5vw,2.3rem);margin-top:26px;line-height:2.1}
+  .translit{font-size:.9rem;letter-spacing:.22em;color:var(--muted);margin-top:6px;text-transform:uppercase}
+
+  .name-plate{margin-top:44px;padding:22px 34px;border:1px solid var(--line);border-radius:2px;
+    background:rgba(13,77,63,.14)}
+  .name-plate .small{font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--muted)}
+  .name-plate .name{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,6vw,2.8rem);
+    color:var(--gold-bright);font-style:italic;line-height:1.3;margin-top:6px}
+
+  .year{margin-top:30px;font-size:.78rem;letter-spacing:.45em;color:var(--gold);text-transform:uppercase}
+
+  .scroll-cue{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+    font-size:.65rem;letter-spacing:.35em;color:var(--muted);text-transform:uppercase}
+  .scroll-cue::after{content:"";display:block;width:1px;height:38px;margin:12px auto 0;
+    background:linear-gradient(180deg,var(--gold),transparent);animation:pulse 2.4s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+
+  /* ---------- approval badge ---------- */
+  .approved{text-align:center}
+  .stamp{display:inline-flex;flex-direction:column;align-items:center;gap:10px;
+    padding:26px 40px;border:1px solid var(--gold);border-radius:3px;
+    box-shadow:0 0 0 4px rgba(217,179,101,.07), 0 24px 60px -30px rgba(217,179,101,.5)}
+  .stamp .tick{width:34px;height:34px}
+  .stamp .txt{font-size:.72rem;letter-spacing:.45em;text-transform:uppercase;color:var(--gold-bright)}
+  .approved p{margin-top:28px;color:var(--muted);font-size:1.05rem}
+
+  /* ---------- message ---------- */
+  .message{text-align:center}
+  .message h2{font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:clamp(1.9rem,5.5vw,3rem);color:var(--gold-bright);line-height:1.25}
+  .message p{margin-top:26px;font-size:clamp(1rem,2.6vw,1.15rem);color:rgba(244,238,224,.86)}
+
+  blockquote{margin:52px auto 0;max-width:620px;padding:30px 26px;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  blockquote .arabic{font-size:clamp(1.15rem,3.6vw,1.5rem);line-height:2.2}
+  blockquote cite{display:block;margin-top:16px;font-style:normal;font-size:.75rem;
+    letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+
+  /* ---------- journey ---------- */
+  .journey h2{text-align:center;font-family:'Cormorant Garamond',serif;font-weight:300;
+    font-size:clamp(1.8rem,5vw,2.6rem);color:var(--cream)}
+  .journey p.lead{text-align:center;color:var(--muted);margin-top:12px}
+
+  .steps{margin-top:56px}
+  .step{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:26px 0;
+    border-bottom:1px solid rgba(217,179,101,.13)}
+  .step:last-child{border-bottom:0}
+  .step .num{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold);
+    border:1px solid var(--line);border-radius:50%;width:46px;height:46px;
+    display:flex;align-items:center;justify-content:center}
+  .step h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.35rem;color:var(--gold-bright)}
+  .step h3 .ar{font-family:'Amiri',serif;font-size:1.15rem;color:var(--muted);margin-left:10px}
+  .step p{color:var(--muted);font-size:.98rem;margin-top:6px}
+
+  /* ---------- kaaba ---------- */
+  .kaaba-section{text-align:center}
+  .kaaba{width:min(300px,72vw);height:auto;filter:drop-shadow(0 0 44px rgba(217,179,101,.22))}
+  .kaaba-section p{margin-top:26px;color:var(--muted);font-style:italic;
+    font-family:'Cormorant Garamond',serif;font-size:1.25rem}
+
+  /* ---------- dua ---------- */
+  .dua{text-align:center;background:linear-gradient(180deg,transparent,rgba(13,77,63,.2))}
+  .dua .arabic{font-size:clamp(1.3rem,4.4vw,1.9rem);line-height:2.3}
+  .dua .en{margin-top:22px;color:rgba(244,238,224,.86);font-family:'Cormorant Garamond',serif;
+    font-style:italic;font-size:clamp(1.05rem,3vw,1.35rem);max-width:560px;margin:22px auto 0}
+
+  /* ---------- footer ---------- */
+  footer{text-align:center;padding:70px 24px 90px;border-top:1px solid rgba(217,179,101,.13)}
+  footer .heart{color:var(--gold);font-size:1.3rem}
+  footer p.note{color:var(--muted);font-size:.9rem;margin-top:14px}
+  footer .sig{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;
+    color:var(--gold-bright);margin-top:10px}
+
+  @media (max-width:520px){
+    .step{grid-template-columns:44px 1fr;gap:14px}
+    .step .num{width:38px;height:38px;font-size:1.2rem}
+    .name-plate{padding:18px 22px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="sky" id="sky"></div>
+
+<div class="wrap">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <svg class="moon" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+      <path d="M62 8a46 46 0 1 0 30 62A38 38 0 0 1 62 8Z" fill="#f2dfa8"/>
+      <path d="M22 20l2.6 6.2L31 29l-6.4 2.8L22 38l-2.6-6.2L13 29l6.4-2.8Z" fill="#f2dfa8" opacity=".9"/>
+    </svg>
+
+    <p class="eyebrow">Alhamdulillah</p>
+    <h1>Mabrook</h1>
+
+    <p class="arabic labbayk">لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ</p>
+    <p class="translit">Labbayk Allahumma Labbayk</p>
+
+    <div class="name-plate">
+      <p class="small">Guest of the Most Merciful</p>
+      <p class="name">Zahra</p>
+    </div>
+
+    <p class="year">Hajj &middot; 2027</p>
+
+    <p class="scroll-cue">Scroll</p>
+  </section>
+
+  <!-- ============ APPROVED ============ -->
+  <section class="approved">
+    <div class="inner reveal">
+      <div class="stamp">
+        <svg class="tick" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" stroke="#d9b365" stroke-width="1.2"/>
+          <path d="M12 20.5l5.5 5.5L28.5 15" stroke="#f2dfa8" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="txt">Application Approved</span>
+      </div>
+      <p>Every form, every document, every long wait &mdash; complete.<br>The invitation has come, and it has your name on it.</p>
+    </div>
+  </section>
+
+  <!-- ============ MESSAGE ============ -->
+  <section class="message">
+    <div class="inner reveal">
+      <div class="rule"><span>&#10022;</span></div>
+
+      <h2>Of all the millions who long for it,<br>you were chosen.</h2>
+
+      <p>Hajj is not something a person simply decides to do. It is an invitation &mdash; and it is only ever extended to those who are called. This year, out of all the hearts turned toward Makkah, yours was one of them.</p>
+
+      <p>I have watched you pray for this. I have watched you hope quietly, patiently, without ever demanding. And now the answer has arrived, exactly as it was always meant to.</p>
+
+      <p>I could not be prouder of you, or happier for you. Next year, insha&rsquo;Allah, you will stand where the Prophets stood, walk where they walked, and answer the call in your own voice.</p>
+
+      <blockquote>
+        <p class="arabic">وَأَذِّن فِي النَّاسِ بِالْحَجِّ يَأْتُوكَ رِجَالًا وَعَلَىٰ كُلِّ ضَامِرٍ يَأْتِينَ مِن كُلِّ فَجٍّ عَمِيقٍ</p>
+        <cite>&ldquo;And proclaim to the people the Hajj &mdash; they will come to you&rdquo; &middot; Al-Hajj 22:27</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============ JOURNEY ============ -->
+  <section class="journey">
+    <div class="inner reveal">
+      <h2>The journey ahead</h2>
+      <p class="lead">Insha&rsquo;Allah, next year you will live every one of these.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <h3>Ihram <span class="ar">إحرام</span></h3>
+            <p>Two simple white cloths. Nothing to mark rank, wealth or origin &mdash; only a soul standing before its Lord.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <h3>Tawaf <span class="ar">طواف</span></h3>
+            <p>Seven circles around the Ka&rsquo;bah, shoulder to shoulder with the whole world, everyone turning toward the same centre.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <h3>Sa&rsquo;i <span class="ar">سعي</span></h3>
+            <p>Between Safa and Marwah &mdash; retracing the steps of Hajar, a mother who ran in trust and was answered with Zamzam.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <div>
+            <h3>Arafah <span class="ar">عرفة</span></h3>
+            <p>The heart of Hajj. A single afternoon on the plain, hands raised, where du&rsquo;as are not turned away. Please remember me there.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="num">5</div>
+          <div>
+            <h3>Muzdalifah &amp; Mina <span class="ar">منى</span></h3>
+            <p>A night under open sky, then the stoning at Jamarat &mdash; and after it, the lightness of a slate wiped clean.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ KAABA ============ -->
+  <section class="kaaba-section">
+    <div class="inner reveal">
+      <svg class="kaaba" viewBox="0 0 320 260" fill="none" aria-hidden="true">
+        <ellipse cx="160" cy="232" rx="140" ry="16" fill="#d9b365" opacity=".07"/>
+        <path d="M70 74 L160 44 L250 74 L250 224 L160 244 L70 224 Z" fill="#0a0f1e"/>
+        <path d="M70 74 L160 44 L250 74 L160 104 Z" fill="#111a30"/>
+        <path d="M160 104 L250 74 L250 224 L160 244 Z" fill="#060a15"/>
+        <path d="M70 132 L160 162 L250 132 L250 150 L160 180 L70 150 Z" fill="#d9b365" opacity=".85"/>
+        <rect x="198" y="128" width="28" height="66" fill="#d9b365" opacity=".5"/>
+        <path d="M70 74 L160 44 L250 74 L250 224 L160 244 L70 224 Z" stroke="#d9b365" stroke-width="1.1" opacity=".5"/>
+        <path d="M160 104 L160 244" stroke="#d9b365" stroke-width=".8" opacity=".3"/>
+        <path d="M160 44 L160 6" stroke="#f2dfa8" stroke-width="1" opacity=".35"/>
+        <circle cx="160" cy="10" r="3" fill="#f2dfa8" opacity=".8"/>
+      </svg>
+      <p>&ldquo;Here I am, O Allah, here I am.&rdquo;</p>
+    </div>
+  </section>
+
+  <!-- ============ DUA ============ -->
+  <section class="dua">
+    <div class="inner reveal">
+      <div class="rule"><span>&#10022;</span></div>
+      <p class="arabic">اللَّهُمَّ اجْعَلْهُ حَجًّا مَبْرُورًا وَسَعْيًا مَشْكُورًا وَذَنْبًا مَغْفُورًا</p>
+      <p class="en">O Allah, make it a Hajj accepted, an effort appreciated, and a sin forgiven.</p>
+      <div class="rule"><span>&#10022;</span></div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="heart">&#10022;</p>
+    <p class="note">Congratulations, my love. Travel safely, and come back with a lighter heart.</p>
+    <p class="sig">With all my love, always</p>
+  </footer>
+
+</div>
+
+<script>
+  // starfield
+  (function () {
+    var sky = document.getElementById('sky');
+    var n = window.innerWidth < 640 ? 70 : 140;
+    var frag = document.createDocumentFragment();
+    for (var i = 0; i < n; i++) {
+      var s = document.createElement('div');
+      var size = Math.random() * 2 + 0.6;
+      s.className = 'star';
+      s.style.width = s.style.height = size.toFixed(2) + 'px';
+      s.style.left = (Math.random() * 100).toFixed(2) + '%';
+      s.style.top = (Math.random() * 100).toFixed(2) + '%';
+      s.style.animationDuration = (Math.random() * 4 + 2.5).toFixed(2) + 's';
+      s.style.animationDelay = (Math.random() * 5).toFixed(2) + 's';
+      frag.appendChild(s);
+    }
+    sky.appendChild(frag);
+  })();
+
+  // scroll reveal
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window)) {
+      Array.prototype.forEach.call(els, function (e) { e.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, { threshold: 0.15 });
+    Array.prototype.forEach.call(els, function (e) { io.observe(e); });
+  })();
+</script>
+
+</body>
+</html>
